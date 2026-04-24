@@ -55,7 +55,7 @@ stages:
       inputs:
         action: 'createSecret'
         connectionType: 'kubernetesServiceConnection'
-        kubernetesServiceConnection: 'kubernetes'   # ✅ fixed
+        kubernetesServiceConnection: 'kubernetes'
         namespace: 'default'
         secretType: 'dockerRegistry'
         secretName: '$(acrsecret)'
@@ -64,7 +64,7 @@ stages:
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'kubernetes'   # ✅ fixed
+        kubernetesServiceConnection: 'kubernetes'   
         namespace: 'default'
         manifests: |
           $(Pipeline.Workspace)/manifests/deployment.yml
