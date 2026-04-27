@@ -15,7 +15,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      name: mrudul
+      name: default
     steps:
     - task: Docker@2
       displayName: Build an image
@@ -43,7 +43,7 @@ stages:
   - job: Deploy
     displayName: Deploy to AKS
     pool:
-      name: mrudul
+      name: default
     steps:
     - task: DownloadPipelineArtifact@2
       inputs:
