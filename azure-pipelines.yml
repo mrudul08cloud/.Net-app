@@ -20,7 +20,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'container'
+        containerRegistry: 'harsh'
         repository: '$(imageRepo)'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
@@ -55,16 +55,16 @@ stages:
       inputs:
         action: 'createSecret'
         connectionType: 'kubernetesServiceConnection'
-        kubernetesServiceConnection: 'kubernetes'
+        kubernetesServiceConnection: 'amar'
         namespace: 'default'
         secretType: 'dockerRegistry'
         secretName: '$(acrsecret)'
-        dockerRegistryEndpoint: 'saurabh'
+        dockerRegistryEndpoint: 'harsh'
 
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'kubernetes'   
+        kubernetesServiceConnection: 'amar'   
         namespace: 'default'
         manifests: |
           $(Pipeline.Workspace)/manifests/deployment.yml
